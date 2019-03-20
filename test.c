@@ -59,8 +59,9 @@ int main(int argc, char const *argv[])
 	init_board();
 	char game_board [3][3];
 	init_game_board(game_board);
-	display_board(game_board);
 	insert(game_board, 8, 'X');
+	display_board(game_board);
+	
 
 
 	return 0;
