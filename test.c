@@ -38,25 +38,43 @@ void init_game_board(char game_board[9])
 	}
 }
 
+
+char switch_char(char input)
+{
+	switch(input)
+	{
+		case 'X':
+		return 'O';
+
+		case '0':
+		return 'X';
+
+		default:
+		printf("Error");
+		break;
+
+
+	}
+}
+
 void insert(char* game_board)
 {
 	int pos;
-	input = 'X';
 	scanf("%d", &pos);
-	game_board[pos] = input;
-}
 
-void switch_char()
-{
+	if(pos > 9)
+	{
+		printf("Please enter a value from 0 - 9\n");
+	}
+
+	game_board[pos] = input;
+
 	if(input = 'X')
 	{
-		input = 'O';
-	}
-	else if(input = 'O')
-	{
-		input = 'X';
+		switch_char(input);
 	}
 }
+
 
 int main(int argc, char const *argv[])
 {
@@ -72,7 +90,7 @@ int main(int argc, char const *argv[])
 	{
 		insert(game_board);
 		display_board(game_board);
-		switch_char();
+		switch_char(game_board);
 
 	}
 
