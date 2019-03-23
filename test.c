@@ -21,11 +21,9 @@ void display_board(char game_board[9])
 {
 	printf("\n\n");
 
-		printf("| %c || %c || %c |\n", game_board[0], game_board[1], game_board[2]);
-		printf("-------------\n");
-		printf("| %c || %c || %c |\n", game_board[3], game_board[4], game_board[5]);
-		printf("-------------\n");
-		printf("| %c || %c || %c |\n", game_board[6], game_board[7], game_board[8]);
+		printf("| %c || %c || %c |\n", game_board[1], game_board[2], game_board[3]);
+		printf("| %c || %c || %c |\n", game_board[4], game_board[5], game_board[6]);
+		printf("| %c || %c || %c |\n", game_board[7], game_board[8], game_board[9]);
 }
 
 //sets all positons to blank
@@ -39,21 +37,21 @@ void init_game_board(char game_board[9])
 }
 
 
-char switch_char(char input)
+char switch_char()
 {
 	switch(input)
 	{
 		case 'X':
-		return 'O';
-
-		case '0':
-		return 'X';
-
-		default:
-		printf("Error");
+		input = 'O';
 		break;
 
+		case 'O':
+		input = 'X';
+		break;
 
+		default:
+		printf("Error\n");
+		break;
 	}
 }
 
@@ -62,17 +60,12 @@ void insert(char* game_board)
 	int pos;
 	scanf("%d", &pos);
 
-	if(pos > 9)
+	if(pos > 9  || pos <= 0)
 	{
-		printf("Please enter a value from 0 - 9\n");
+		printf("Please enter a value from 1 - 9\n");
 	}
 
 	game_board[pos] = input;
-
-	if(input = 'X')
-	{
-		switch_char(input);
-	}
 }
 
 
@@ -90,8 +83,7 @@ int main(int argc, char const *argv[])
 	{
 		insert(game_board);
 		display_board(game_board);
-		switch_char(game_board);
-
+		switch_char();
 	}
 
 	return 0;
