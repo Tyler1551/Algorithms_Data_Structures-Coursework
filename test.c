@@ -9,7 +9,7 @@ char input = 'X';
 //shows intial board with positions labelled
 void init_board()
 {
-	char board [MAX] = {1,2,3,4,5,6,7,8,9};
+	char board [MAX] = {7,8,9,4,5,6,1,2,3};
 
 		printf("| %d || %d || %d |\n", board[0], board[1], board[2]);
 		printf("| %d || %d || %d |\n", board[3], board[4], board[5]);
@@ -21,9 +21,9 @@ void display_board(char game_board[9])
 {
 	printf("\n\n");
 
-		printf("| %c || %c || %c |\n", game_board[1], game_board[2], game_board[3]);
-		printf("| %c || %c || %c |\n", game_board[4], game_board[5], game_board[6]);
 		printf("| %c || %c || %c |\n", game_board[7], game_board[8], game_board[9]);
+		printf("| %c || %c || %c |\n", game_board[4], game_board[5], game_board[6]);
+		printf("| %c || %c || %c |\n", game_board[1], game_board[2], game_board[3]);
 }
 
 //sets all positons to blank
@@ -62,10 +62,15 @@ void insert(char* game_board)
 
 	if(pos > 9  || pos <= 0)
 	{
-		printf("Please enter a value from 1 - 9\n");
+		printf("Please enter a single value from the numpad\n");
 	}
 
 	game_board[pos] = input;
+}
+
+void checkwin()
+{
+	
 }
 
 
@@ -73,9 +78,10 @@ int main(int argc, char const *argv[])
 {
 	bool gamewon = false;
 
-	printf("\t\t\t\tWelcome to naughts and crosses!\n\t\t\tTo play choose a position on the grid using the numpad\n\t\tThe first grid shown lists the positions of the grid to play\n\n");
-	init_board();
+	printf("Welcome to naughts and crosses!\nTo play choose a position on the grid using the numpad\nThe first grid shows lists the positions of the grid to play\n\n");
+	
 	char game_board [MAX];
+	init_board();
 	init_game_board(game_board);
 	display_board(game_board);
 
@@ -84,6 +90,7 @@ int main(int argc, char const *argv[])
 		insert(game_board);
 		display_board(game_board);
 		switch_char();
+		
 	}
 
 	return 0;
