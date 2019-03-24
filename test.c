@@ -30,9 +30,10 @@ void display_board(char game_board[MAX])
 void init_game_board(char game_board[MAX])
 {
 	int i; 
-	for(i = 0; i < MAX; i++)
+	//had to set it to MAX + 1 (10) to initialise index 9 of the board
+	for(i = 0; i < MAX + 1; i++)
 	{
-		game_board[i] = 0;
+		game_board[i] = ' ';
 	}
 }
 
@@ -42,10 +43,12 @@ char switch_char()
 	switch(input)
 	{
 		case 'X':
+		printf("Noughts turn to play a position: ");
 		input = 'O';
 		break;
 
 		case 'O':
+		printf("Crosses turn to play a position: ");
 		input = 'X';
 		break;
 
@@ -60,26 +63,28 @@ void insert(char* game_board)
 	int pos;
 	scanf("%d", &pos);
 
-	game_board[pos] = input;
+	if(game_board[pos] == ' ')
+	{
+		game_board[pos] = input;
+	}
+	else
+	{
+		switch_char();
+		printf("----ERROR: Please choose an empty position----\n");
+	}
+	
+
+
 
 }
 
-void checkwin()
+void checkwin(char game_board)
 {
-	int grid [8][3] = {
-		{7,8,9},
-		{4,5,6},
-		{1,2,3},
-		{1,4,7},
-		{2,5,8},
-		{3,6,9},
-		{1,5,9},
-		{7,5,3}
-	};
+	bool gamewon = false;
+
 
 
 }
-
 
 int main(int argc, char const *argv[])
 {
@@ -92,6 +97,7 @@ int main(int argc, char const *argv[])
 	init_game_board(game_board);
 	display_board(game_board);
 
+	printf("Crosses to play first move: ");
 	while(gamewon != true)
 	{
 		insert(game_board);
