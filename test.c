@@ -17,7 +17,7 @@ void init_board()
 }
 
 //shows game board that the user makes moves on
-void display_board(char game_board[9])
+void display_board(char game_board[MAX])
 {
 	printf("\n\n");
 
@@ -27,7 +27,7 @@ void display_board(char game_board[9])
 }
 
 //sets all positons to blank
-void init_game_board(char game_board[9])
+void init_game_board(char game_board[MAX])
 {
 	int i; 
 	for(i = 0; i < MAX; i++)
@@ -60,17 +60,24 @@ void insert(char* game_board)
 	int pos;
 	scanf("%d", &pos);
 
-	if(pos > 9  || pos <= 0)
-	{
-		printf("Please enter a single value from the numpad\n");
-	}
-
 	game_board[pos] = input;
+
 }
 
 void checkwin()
 {
-	
+	int grid [8][3] = {
+		{7,8,9},
+		{4,5,6},
+		{1,2,3},
+		{1,4,7},
+		{2,5,8},
+		{3,6,9},
+		{1,5,9},
+		{7,5,3}
+	};
+
+
 }
 
 
