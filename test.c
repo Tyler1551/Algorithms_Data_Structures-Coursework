@@ -1,6 +1,5 @@
 #include <stdio.h>
-
-typedef enum { false, true } bool;
+#include <stdbool.h>
 
 #define MAX 9
 
@@ -64,6 +63,7 @@ void insert(char* game_board)
 	int pos;
 	scanf("%d", &pos);
 
+
 	if(game_board[pos] == ' ')
 	{
 		game_board[pos] = input;
@@ -76,30 +76,26 @@ void insert(char* game_board)
 
 }
 
-/*bool checkwin(char game_board)
-{
-	bool gamewon = false;
-	int winningcombo [8][3] = {
-		{1,2,3},
-		{4,5,6},
+bool checkwin(char game_board[MAX], bool gamewon)
+{	
+	int winningcombo[8][3] = {
 		{7,8,9},
+		{4,5,6},
+		{1,2,3},
 		{1,4,7},
 		{2,5,8},
 		{3,6,9},
 		{1,5,9},
-		{7,5,3}
+		{3,5,7}
 	};
-
-	int i;
-	for(i = 0; i < 8; i++)
+	
+	if(game_board[7] == 'X' && game_board[8] == 'X' && game_board[9] == 'X')
 	{
-		if(game_board = winningcombo[i][0] && game_board = winningcombo[i][1] && game_board = winningcombo[i][2])
-		{
-			gamewon = true;
-		}
+		gamewon = true;
+		printf("Crosses win!\n");
 	}
-return gamewon;
-}*/
+	return gamewon;
+}
 
 int main(int argc, char const *argv[])
 {
@@ -115,6 +111,7 @@ int main(int argc, char const *argv[])
 	printf("Crosses to play first move: ");
 	while(gamewon != true)
 	{
+		checkwin(game_board, gamewon);
 		insert(game_board);
 		display_board(game_board);
 		switch_char();
