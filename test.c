@@ -60,6 +60,7 @@ char switch_char()
 
 void insert(char* game_board)
 {
+	int numbers [MAX + 1] = {0,1,2,3,4,5,6,7,8,9};
 	int pos;
 	scanf("%d", &pos);
 
@@ -70,21 +71,35 @@ void insert(char* game_board)
 	else
 	{
 		switch_char();
-		printf("----ERROR: Please choose an empty position----\n");
+		printf("\n----ERROR: Please choose an empty position----\n");
 	}
-	
-
-
 
 }
 
-void checkwin(char game_board)
+/*bool checkwin(char game_board)
 {
 	bool gamewon = false;
+	int winningcombo [8][3] = {
+		{1,2,3},
+		{4,5,6},
+		{7,8,9},
+		{1,4,7},
+		{2,5,8},
+		{3,6,9},
+		{1,5,9},
+		{7,5,3}
+	};
 
-
-
-}
+	int i;
+	for(i = 0; i < 8; i++)
+	{
+		if(game_board = winningcombo[i][0] && game_board = winningcombo[i][1] && game_board = winningcombo[i][2])
+		{
+			gamewon = true;
+		}
+	}
+return gamewon;
+}*/
 
 int main(int argc, char const *argv[])
 {
@@ -103,7 +118,6 @@ int main(int argc, char const *argv[])
 		insert(game_board);
 		display_board(game_board);
 		switch_char();
-		
 	}
 
 	return 0;
