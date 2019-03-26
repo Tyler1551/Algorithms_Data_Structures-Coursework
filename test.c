@@ -10,9 +10,9 @@ void init_board()
 {
 	char board [MAX] = {7,8,9,4,5,6,1,2,3};
 
-		printf("| %d || %d || %d |\n", board[0], board[1], board[2]);
-		printf("| %d || %d || %d |\n", board[3], board[4], board[5]);
-		printf("| %d || %d || %d |\n", board[6], board[7], board[8]);
+		printf("\t\t| %d || %d || %d |\n", board[0], board[1], board[2]);
+		printf("\t\t| %d || %d || %d |\n", board[3], board[4], board[5]);
+		printf("\t\t| %d || %d || %d |\n", board[6], board[7], board[8]);
 }
 
 //shows game board that the user makes moves on
@@ -20,9 +20,9 @@ void display_board(char game_board[MAX])
 {
 	printf("\n\n");
 
-		printf("| %c || %c || %c |\n", game_board[7], game_board[8], game_board[9]);
-		printf("| %c || %c || %c |\n", game_board[4], game_board[5], game_board[6]);
-		printf("| %c || %c || %c |\n", game_board[1], game_board[2], game_board[3]);
+		printf("\t\t| %c || %c || %c |\n", game_board[7], game_board[8], game_board[9]);
+		printf("\t\t| %c || %c || %c |\n", game_board[4], game_board[5], game_board[6]);
+		printf("\t\t| %c || %c || %c |\n\n", game_board[1], game_board[2], game_board[3]);
 }
 
 //sets all positons to blank
@@ -59,7 +59,7 @@ char switch_char()
 
 void insert(char* game_board)
 {
-	int numbers [MAX + 1] = {0,1,2,3,4,5,6,7,8,9};
+	//int numbers [MAX + 1] = {0,1,2,3,4,5,6,7,8,9};
 	int pos;
 	scanf("%d", &pos);
 
@@ -78,7 +78,7 @@ void insert(char* game_board)
 
 bool checkwin(char game_board[MAX], bool gamewon)
 {	
-	int winningcombo[8][3] = {
+/*	int winningcombo[8][3] = {
 		{7,8,9},
 		{4,5,6},
 		{1,2,3},
@@ -89,11 +89,112 @@ bool checkwin(char game_board[MAX], bool gamewon)
 		{3,5,7}
 	};
 	
+*/	/*	int i;
+		for(i = 0; i < 8; i++)
+		{
+			if()
+		}
+	*/
+
 	if(game_board[7] == 'X' && game_board[8] == 'X' && game_board[9] == 'X')
 	{
-		gamewon = true;
-		printf("Crosses win!\n");
+		gamewon == true;
+		printf("\nCrosses win!\n");
+		return gamewon;
+		
 	}
+	else if(game_board[4] == 'X' && game_board[5] == 'X' && game_board[6] == 'X')
+	{
+		gamewon == true;
+		printf("\nCrosses Win!\n");
+		return gamewon;
+	}
+	else if(game_board[1] == 'X' && game_board[2] == 'X' && game_board[3] == 'X')
+	{
+		gamewon == true;
+		printf("\nCrosses Win!\n");
+		return gamewon;
+	}
+	else if(game_board[1] == 'X' && game_board[4] == 'X' && game_board[7] == 'X')
+	{
+		gamewon == true;
+		printf("\nCrosses Win!\n");
+		return gamewon;
+	}
+	else if(game_board[2] == 'X' && game_board[5] == 'X' && game_board[8] == 'X')
+	{
+		gamewon == true;
+		printf("\nCrosses Win!\n");
+		return gamewon;
+	}
+	else if(game_board[3] == 'X' && game_board[6] == 'X' && game_board[9] == 'X')
+	{
+		gamewon == true;
+		printf("\nCrosses Win!\n");
+		return gamewon;
+	}
+	else if(game_board[1] == 'X' && game_board[5] == 'X' && game_board[9] == 'X')
+	{
+		gamewon == true;
+		printf("\nCrosses Win!\n");
+		return gamewon;
+	}
+	else if(game_board[7] == 'X' && game_board[5] == 'X' && game_board[3] == 'X')
+	{
+		gamewon == true;
+		printf("\nCrosses Win!\n");
+		return gamewon;
+	}
+	else if(game_board[7] == 'O' && game_board[8] == 'O' && game_board[9] == 'O')
+	{
+		gamewon == true;
+		printf("\nNoughts win!\n");
+		return gamewon;
+		
+	}
+	else if(game_board[4] == 'O' && game_board[5] == 'O' && game_board[6] == 'O')
+	{
+		gamewon == true;
+		printf("\nNoughts Win!\n");
+		return gamewon;
+	}
+	else if(game_board[1] == 'O' && game_board[2] == 'O' && game_board[3] == 'O')
+	{
+		gamewon == true;
+		printf("\nNoughts Win!\n");
+		return gamewon;
+	}
+	else if(game_board[1] == 'O' && game_board[4] == 'O' && game_board[7] == 'O')
+	{
+		gamewon == true;
+		printf("\nNoughts Win!\n");
+		return gamewon;
+	}
+	else if(game_board[2] == 'O' && game_board[5] == 'O' && game_board[8] == 'O')
+	{
+		gamewon == true;
+		printf("\nNoughts Win!\n");
+		return gamewon;
+	}
+	else if(game_board[3] == 'O' && game_board[6] == 'O' && game_board[9] == 'O')
+	{
+		gamewon == true;
+		printf("\nNoughts Win!\n");
+		return gamewon;
+	}
+	else if(game_board[1] == 'O' && game_board[5] == 'O' && game_board[9] == 'O')
+	{
+		gamewon == true;
+		printf("\nNoughts Win!\n");
+		return gamewon;
+	}
+	else if(game_board[7] == 'O' && game_board[5] == 'O' && game_board[3] == 'O')
+	{
+		gamewon == true;
+		printf("\nNoughts Win!\n");
+		return gamewon;
+	}
+
 	return gamewon;
 }
 
@@ -109,13 +210,20 @@ int main(int argc, char const *argv[])
 	display_board(game_board);
 
 	printf("Crosses to play first move: ");
-	while(gamewon != true)
+	while(gamewon == false)
 	{
 		checkwin(game_board, gamewon);
+		if(gamewon == true)
+		{
+			goto exit;
+		}
 		insert(game_board);
 		display_board(game_board);
 		switch_char();
 	}
+
+	exit:
+	printf("\nCongrats you've finished the game");
 
 	return 0;
 }
